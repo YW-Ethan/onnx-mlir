@@ -107,7 +107,7 @@ private:
     _mktemp(tempFile);
 #else
     strcpy(tempFile, "onnxtempdumpXXXXXX");
-    mkstemp(tempFile);
+    (void)mkstemp(tempFile);
 #endif
     outputCode(module, tempFile);
     uint64_t r = hashFile(tempFile);
